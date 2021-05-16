@@ -3,7 +3,7 @@ import Weather from './Weather'
 
 function App() {
   return (
-    <div className="container">
+    <div id="appContainer" className="container">
         <h1>Pug Weather</h1>
         <Weather />
         <p className="signature">

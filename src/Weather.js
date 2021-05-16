@@ -53,9 +53,9 @@ export default function Weather() {
                 </img>
                 <ul>
                     <li>{city}</li>
-                    <li>{weather.temp}°C</li>
-                    <li>{weather.wind} km/hr</li>
-                    <li>{weather.humidity}%</li>
+                    <li>Temperature: {weather.temp}°C</li>
+                    <li>Wind Speed: {weather.wind} km/hr</li>
+                    <li>Humidity: {weather.humidity}%</li>
                 </ul>
             </div>
          </div>
