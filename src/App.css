@@ -3,16 +3,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 30px 200px;
+  margin: 25px 200px;
   flex-wrap: wrap;
 }
 
 #appContainer {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.6);
   box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
-  border-radius: 10px;
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border-radius: 25px;
   padding: 20px;
   font-family: Raleway, sans-serif;
 }
@@ -26,7 +26,7 @@
 }
 
 img {
-  max-width: 30%;
+  max-width: 50%;
   margin: 0 30px 0 0;
 }
 
@@ -56,4 +56,8 @@ h1 {
   font-family: Lobster, serif;
   font-size: 64px;
   line-height: 12px;
+}
+
+.signature {
+  font-style: italic;
 }

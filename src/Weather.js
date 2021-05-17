@@ -1,6 +1,7 @@
 import './App.css'
 import React, { useState } from "react";
 import axios from "axios";
+import Pug from "./Pug.png";
 
 export default function Weather() {
 
@@ -48,11 +49,11 @@ export default function Weather() {
             <div className="search">
                 {form}
             </div>
+            <h2>{city}</h2>
             <div className="weatherContainer">
-                <img src="https://www.treehugger.com/thmb/PsmgilQpm3asfyzhIwNNXiOumcU=/4032x3024/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2019__10__pug-bath-1028-main-new-806284ff08c244b9a4e2abf2509da3b1.jpg">
+                <img src={Pug} alt="pug">
                 </img>
                 <ul>
-                    <li>{city}</li>
                     <li>Temperature: {weather.temp}°C</li>
                     <li>Wind Speed: {weather.wind} km/hr</li>
                     <li>Humidity: {weather.humidity}%</li>
@@ -70,7 +71,7 @@ export default function Weather() {
                     {form}
                 </div>
                 <div className="weatherContainer">
-                    <img src="https://www.treehugger.com/thmb/PsmgilQpm3asfyzhIwNNXiOumcU=/4032x3024/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2019__10__pug-bath-1028-main-new-806284ff08c244b9a4e2abf2509da3b1.jpg">
+                    <img src={Pug} alt="pug">
                     </img>
                     <ul>
                     </ul>
