@@ -10,10 +10,11 @@
 #appContainer {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(4.5px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border-radius: 10px;
   padding: 20px;
+  font-family: Raleway, sans-serif;
 }
 
 .weatherContainer {
@@ -49,4 +50,10 @@ ul {
   border-radius: 15px;
   border: solid black 2px;
   padding: 3px 5px;
+}
+
+h1 {
+  font-family: Lobster, serif;
+  font-size: 64px;
+  line-height: 32px;
 }
