@@ -15,11 +15,10 @@ export default function Weather() {
 
     function handleResponse(response) {
 
-        console.log(response.data);
-
         setWeather({
         load: true,
         city: response.data.name,
+        date: new Date(response.data.dt * 1000),
         temp: Math.round(response.data.main.temp),
         wind: Math.round(response.data.wind.speed),
         humidity: response.data.main.humidity,
@@ -56,11 +55,12 @@ export default function Weather() {
             <div className="search">
                 {form}
             </div>
-            <h2>{weather.city}</h2>
+            <h2>How's the weather in {weather.city}?</h2>
             <div className="weatherContainer">
                 <img src={Pug} alt={weather.description}>
                 </img>
                 <ul>
+                    <li><FormattedDate date={weather.date} /></li>
                     <li className="weatherDescription"><strong>Weather:</strong> {weather.description}</li>
                     <li><strong>Temperature:</strong> {weather.temp}°F</li>
                     <li><strong>Wind Speed:</strong> {weather.wind} mph</li>
