@@ -26,18 +26,24 @@
   flex-wrap: wrap;
 }
 
+input {
+  color: #4c727a;
+}
+
 img {
-  max-width: 50%;
+  max-width: 40%;
   margin: 0 30px 0 0;
 }
 
 ul {
   list-style-type: none;
   color: #4c727a;
+  line-height: 48px;
 }
 
 .search {
   margin: 0 0 30px 0;
+  color: #4c727a;
 }
 
 #button {
@@ -46,12 +52,15 @@ ul {
   border: solid #93dcec 2px;
   padding: 3px 5px;
   margin: 3px;
+  font-family: Raleway, sans-serif;
 }
 
 #userLocation {
   border-radius: 15px;
-  border: solid black 2px;
+  border: solid #4c727a 2px;
   padding: 3px 5px;
+  color: #4c727a;
+  font-family: Raleway, sans-serif;
 }
 
 h1 {
