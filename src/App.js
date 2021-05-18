@@ -4,7 +4,7 @@ import Weather from './Weather'
 function App() {
   return (
     <div id="appContainer" className="container">
-        <h1>✿ Pug Weather ✿</h1>
+        <h1>Pug Weather</h1>
         <Weather />
         <p className="signature">
             This project is <a href="https://github.com/maggiegmcd/react-weather-app">open-sourced</a> and 

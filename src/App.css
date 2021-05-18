@@ -5,6 +5,7 @@
   justify-content: center;
   margin: 25px 200px;
   flex-wrap: wrap;
+  color: #4c727a;
 }
 
 #appContainer {
@@ -32,6 +33,7 @@ img {
 
 ul {
   list-style-type: none;
+  color: #4c727a;
 }
 
 .search {
@@ -40,8 +42,8 @@ ul {
 
 #button {
   border-radius: 15px;
-  background-color: plum;
-  border: solid plum 2px;
+  background-color: #93dcec;
+  border: solid #93dcec 2px;
   padding: 3px 5px;
   margin: 3px;
 }
@@ -56,8 +58,10 @@ h1 {
   font-family: Lobster, serif;
   font-size: 64px;
   line-height: 12px;
+  color: #4c727a;
 }
 
 .signature {
   font-style: italic;
+  color: #4c727a;
 }
