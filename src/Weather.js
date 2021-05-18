@@ -12,15 +12,13 @@ export default function Weather() {
 
     const [city, setCity]  = useState("");
     const[weather, setWeather] = useState({ load: false });
-    const[load, setLoad] = useState(false);
 
     function handleResponse(response) {
-
-        setLoad(true);
 
         console.log(response.data);
 
         setWeather({
+        load: true,
         city: response.data.name,
         temp: Math.round(response.data.main.temp),
         wind: Math.round(response.data.wind.speed),
@@ -51,7 +49,7 @@ export default function Weather() {
         </form>
     );
 
-    if (load === true) {
+    if (weather.load) {
 
     return(
         <div className="container">
