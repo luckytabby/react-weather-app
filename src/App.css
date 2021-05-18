@@ -41,6 +41,10 @@ ul {
   line-height: 48px;
 }
 
+.weatherDescription {
+  text-transform: capitalize;
+}
+
 .search {
   margin: 0 0 30px 0;
   color: #4c727a;

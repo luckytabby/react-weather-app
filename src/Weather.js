@@ -2,30 +2,39 @@ import React, { useState } from "react";
 import axios from "axios";
 import Pug from "./BigPug.png";
 import './App.css';
+import FormattedDate from "./FormattedDate";
 
 export default function Weather() {
 
+    //** Constants are the API key, user-entered city/state, weather/state, and whether or not weather data has loaded */
+
+    const apiKey = `3fdbb0c1f67069bd33e76ea8a1295d83`;
+
     const [city, setCity]  = useState("");
-    const[weather, setWeather] = useState("");
-    const[load, setLoad] = useState("");
+    const[weather, setWeather] = useState({ load: false });
+    const[load, setLoad] = useState(false);
 
     function handleResponse(response) {
+
+        setLoad(true);
+
+        console.log(response.data);
+
         setWeather({
+        city: response.data.name,
         temp: Math.round(response.data.main.temp),
         wind: Math.round(response.data.wind.speed),
         humidity: response.data.main.humidity,
-        icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+        icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+        description: response.data.weather[0].description,
         });
     }
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        let apiKey = `3fdbb0c1f67069bd33e76ea8a1295d83`;
-        let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
         axios.get(apiURL).then(handleResponse);
-
-        setLoad(true);
     }
 
     function updateCity(event) {
@@ -49,14 +58,15 @@ export default function Weather() {
             <div className="search">
                 {form}
             </div>
-            <h2>{city}</h2>
+            <h2>{weather.city}</h2>
             <div className="weatherContainer">
-                <img src={Pug} alt="pug">
+                <img src={Pug} alt={weather.description}>
                 </img>
                 <ul>
-                    <li>Temperature: {weather.temp}°C</li>
-                    <li>Wind Speed: {weather.wind} km/hr</li>
-                    <li>Humidity: {weather.humidity}%</li>
+                    <li className="weatherDescription"><strong>Weather:</strong> {weather.description}</li>
+                    <li><strong>Temperature:</strong> {weather.temp}°F</li>
+                    <li><strong>Wind Speed:</strong> {weather.wind} mph</li>
+                    <li><strong>Humidity:</strong> {weather.humidity}%</li>
                 </ul>
             </div>
          </div>
