@@ -3,7 +3,6 @@ import axios from "axios";
 import Pug from "./BigPug.png";
 import './App.css';
 import WeatherData from "./WeatherData";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export default function Weather(props) {
 

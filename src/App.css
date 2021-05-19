@@ -78,3 +78,8 @@ h1 {
   font-style: italic;
   color: #4c727a;
 }
+
+#weatherIcon {
+  max-height: 32px;
+  max-width: 32px;
+}
