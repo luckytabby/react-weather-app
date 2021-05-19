@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import Pug from "./BigPug.png";
 import './App.css';
-import FormattedDate from "./FormattedDate";
+import WeatherData from "./WeatherData";
+import FormattedDate from "./FormattedDate"
 
 export default function Weather() {
 
@@ -55,17 +56,20 @@ export default function Weather() {
             <div className="search">
                 {form}
             </div>
-            <h2>How's the weather in {weather.city}?</h2>
-            <div className="weatherContainer">
-                <img src={Pug} alt={weather.description}>
-                </img>
-                <ul>
-                    <li><FormattedDate date={weather.date} /></li>
-                    <li className="weatherDescription"><strong>Weather:</strong> {weather.description}</li>
-                    <li><strong>Temperature:</strong> {weather.temp}°F</li>
-                    <li><strong>Wind Speed:</strong> {weather.wind} mph</li>
-                    <li><strong>Humidity:</strong> {weather.humidity}%</li>
-                </ul>
+            <WeatherData data={weather} />
+            <div className="WeatherData">
+                <h2>How's the weather in {weather.city}?</h2>
+                <div className="weatherContainer">
+                    <img src={Pug} alt={weather.description}>
+                    </img>
+                    <ul>
+                        <li><FormattedDate date={weather.date} /></li>
+                        <li className="weatherDescription"><strong>Weather:</strong> {weather.description}</li>
+                        <li><strong>Temperature:</strong> {weather.temp}°F</li>
+                        <li><strong>Wind Speed:</strong> {weather.wind} mph</li>
+                        <li><strong>Humidity:</strong> {weather.humidity}%</li>
+                    </ul>
+                </div>
             </div>
          </div>
     );
