@@ -3,13 +3,14 @@ import axios from "axios";
 import Pug from "./BigPug.png";
 import './App.css';
 import WeatherData from "./WeatherData";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-export default function Weather() {
+export default function Weather(props) {
 
     //** Constants are the API key, user-entered city/state, weather/state, and whether or not weather data has loaded. */
 
     const apiKey = `3fdbb0c1f67069bd33e76ea8a1295d83`;
-    const [city, setCity]  = useState("");
+    const [city, setCity]  = useState(props.defaultCity);
     const[weather, setWeather] = useState({ load: false });
 
     //** This function will set variables with weather data from our Axios call. */
@@ -31,8 +32,7 @@ export default function Weather() {
     function handleSubmit(event) {
         event.preventDefault();
 
-        let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-        axios.get(apiURL).then(handleResponse);
+        search();
     }
 
     function updateCity(event) {
@@ -48,6 +48,11 @@ export default function Weather() {
             <input id="button" type="submit"></input>
         </form>
     );
+
+    function search() {
+        const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+        axios.get(apiURL).then(handleResponse);
+    }
 
     if (weather.load) {
 
@@ -67,6 +72,9 @@ export default function Weather() {
     }
 
     else {
+
+        search();
+
         return(
             <div className="container">
                 <div className="search">
