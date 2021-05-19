@@ -3,16 +3,16 @@ import axios from "axios";
 import Pug from "./BigPug.png";
 import './App.css';
 import WeatherData from "./WeatherData";
-import FormattedDate from "./FormattedDate"
 
 export default function Weather() {
 
-    //** Constants are the API key, user-entered city/state, weather/state, and whether or not weather data has loaded */
+    //** Constants are the API key, user-entered city/state, weather/state, and whether or not weather data has loaded. */
 
     const apiKey = `3fdbb0c1f67069bd33e76ea8a1295d83`;
-
     const [city, setCity]  = useState("");
     const[weather, setWeather] = useState({ load: false });
+
+    //** This function will set variables with weather data from our Axios call. */
 
     function handleResponse(response) {
 
@@ -56,20 +56,10 @@ export default function Weather() {
             <div className="search">
                 {form}
             </div>
-            <WeatherData data={weather} />
-            <div className="WeatherData">
-                <h2>How's the weather in {weather.city}?</h2>
-                <div className="weatherContainer">
-                    <img src={Pug} alt={weather.description}>
-                    </img>
-                    <ul>
-                        <li><FormattedDate date={weather.date} /></li>
-                        <li className="weatherDescription"><strong>Weather:</strong> {weather.description}</li>
-                        <li><strong>Temperature:</strong> {weather.temp}°F</li>
-                        <li><strong>Wind Speed:</strong> {weather.wind} mph</li>
-                        <li><strong>Humidity:</strong> {weather.humidity}%</li>
-                    </ul>
-                </div>
+            <div className="weatherContainer">
+                <img src={Pug} alt={weather.description}>
+                </img>
+                <WeatherData data={weather} />
             </div>
          </div>
     );
