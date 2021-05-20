@@ -23,7 +23,7 @@ export default function Weather(props) {
         temp: Math.round(response.data.main.temp),
         wind: Math.round(response.data.wind.speed),
         humidity: response.data.main.humidity,
-        icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+        icon: response.data.weather[0].icon,
         description: response.data.weather[0].description,
         });
     }
