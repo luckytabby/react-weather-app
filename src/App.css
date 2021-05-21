@@ -1,11 +1,5 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 25px 200px;
-  flex-wrap: wrap;
-  color: #4c727a;
+a {
+  text-decoration: underline;
 }
 
 #appContainer {
@@ -18,15 +12,29 @@
   font-family: Raleway, sans-serif;
 }
 
-.weatherContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+#button {
+  border-radius: 15px;
+  background-color: #93dcec;
+  border: solid #93dcec 2px;
+  padding: 3px 5px;
+  margin: 3px;
+  font-family: Raleway, sans-serif;
 }
 
-input {
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 200px;
+  flex-wrap: wrap;
+  color: #4c727a;
+}
+
+h1 {
+  font-family: Lobster, serif;
+  font-size: 64px;
+  line-height: 12px;
   color: #4c727a;
 }
 
@@ -35,14 +43,8 @@ img {
   margin: 0 30px 0 0;
 }
 
-ul {
-  list-style-type: none;
+input {
   color: #4c727a;
-  line-height: 32px;
-}
-
-.weatherDescription {
-  text-transform: capitalize;
 }
 
 .search {
@@ -50,13 +52,15 @@ ul {
   color: #4c727a;
 }
 
-#button {
-  border-radius: 15px;
-  background-color: #93dcec;
-  border: solid #93dcec 2px;
-  padding: 3px 5px;
-  margin: 3px;
-  font-family: Raleway, sans-serif;
+.signature {
+  font-style: italic;
+  color: #4c727a;
+}
+
+ul {
+  list-style-type: none;
+  color: #4c727a;
+  line-height: 32px;
 }
 
 #userLocation {
@@ -67,23 +71,19 @@ ul {
   font-family: Raleway, sans-serif;
 }
 
-h1 {
-  font-family: Lobster, serif;
-  font-size: 64px;
-  line-height: 12px;
-  color: #4c727a;
+.weatherContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.signature {
-  font-style: italic;
-  color: #4c727a;
+.weatherDescription {
+  text-transform: capitalize;
 }
 
 #weatherIcon {
   max-height: 32px;
   max-width: 32px;
-}
-
-a {
-  text-decoration: underline;
 }
