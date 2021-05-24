@@ -3,6 +3,7 @@ import axios from "axios";
 import Pug from "./BigPug.png";
 import './App.css';
 import WeatherData from "./WeatherData";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
 
@@ -10,15 +11,16 @@ export default function Weather(props) {
 
     const apiKey = `3fdbb0c1f67069bd33e76ea8a1295d83`;
     const [city, setCity]  = useState(props.defaultCity);
-    const[weather, setWeather] = useState({ load: false });
+    const[weather, setWeather] = useState({ loaded: false });
 
     //** This function will set variables with weather data from our Axios call. */
 
     function handleResponse(response) {
 
         setWeather({
-        load: true,
+        loaded: true,
         city: response.data.name,
+        coord: response.data.coord,
         date: new Date(response.data.dt * 1000),
         temp: Math.round(response.data.main.temp),
         wind: Math.round(response.data.wind.speed),
@@ -26,6 +28,7 @@ export default function Weather(props) {
         icon: response.data.weather[0].icon,
         description: response.data.weather[0].description,
         });
+
     }
 
     function handleSubmit(event) {
@@ -53,7 +56,7 @@ export default function Weather(props) {
         axios.get(apiURL).then(handleResponse);
     }
 
-    if (weather.load) {
+    if (weather.loaded) {
 
     return(
         <div className="container">
@@ -65,6 +68,7 @@ export default function Weather(props) {
                 </img>
                 <WeatherData data={weather} />
             </div>
+            <WeatherForecast coord={weather.coord} />
          </div>
     );
 
