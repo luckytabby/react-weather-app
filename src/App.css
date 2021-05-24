@@ -31,6 +31,14 @@
   color: #4c727a;
 }
 
+.forecast {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 h1 {
   font-family: Lobster, serif;
   font-size: 64px;
