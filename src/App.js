@@ -1,6 +1,5 @@
 import './App.css';
 import Weather from './Weather';
-import WeatherForecast from "./WeatherForecast";
 
 function App() {
   return (

@@ -1,74 +1,47 @@
 import React, { useState } from "react";
-import WeatherIcon from "./WeatherIcon";
 import axios from "axios";
+import WeatherForecastDay from "./WeatherForecastDay";
+import { useEffect } from "react/cjs/react.development";
 
 export default function WeatherForecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
 
-    const[forecast, setForecast] = useState({ loaded: false });
+  useEffect (() => {
 
-    function handleResponse(response) {
+    setLoaded(false);
 
-        console.log(response.data);
+  }, [props.coordinates]);
 
-        setForecast({
-        loaded: true,
-        minTemp: 15,
-        maxTemp: 15,
-        });
+  function handleResponse(response) {
+    setForecast(response.data.daily);
+    setLoaded(true);
+  }
 
-    }
+  if (loaded) {
+    return (
+        <div>
+            {forecast.map(function(dailyForecast, index) {
+                if (index  > 0 && index < 6) {
+                return(
+                    <div key={index}>
+                         <WeatherForecastDay data={dailyForecast} />
+                    </div>
+                ) } else {
+                    return null;
+                }
+            })}
+        </div>
+    );
+  } else {
 
-    let lat = props.coord.lat;
-    let lon = props.coord.lon;
+    let apiKey = "3fdbb0c1f67069bd33e76ea8a1295d83";
+    let longitude = props.coordinates.lon;
+    let latitude = props.coordinates.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
 
-    const apiKey = `3fdbb0c1f67069bd33e76ea8a1295d83`;
+    axios.get(apiUrl).then(handleResponse);
 
-    function search() {
-
-    const apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&unit=imperial`;
-
-    axios.get(apiURL).then(handleResponse);
-
-    };
-
-    if (forecast.loaded) {
-
-        return (
-            <div className="forecast">
-
-                <div className="col">
-                    <p className="forecastDay">{forecast[0].dt}</p>
-                    <WeatherIcon code={forecast[0].weather[0].icon} />
-                    <p>
-                        <span className="forecastTempMin">{forecast[0].temp.max}</span>
-                        / <span className="forecastTempMax">{forecast[0].temp.min}</span>
-                    </p>
-                </div>
-
-            </div>
-        ) 
-
-    }
-
-    else {
-
-        search();
-
-        return (
-            <div className="forecast">
-
-                <div className="col">
-                    <p className="forecastDay">Monday</p>
-                    <WeatherIcon code="10d" />
-                    <p>
-                        <span className="forecastTempMin">10</span>
-                        / <span className="forecastTempMax">20</span>
-                    </p>
-                </div>
-
-            </div>
-        )
-
-    }
-
+    return null;
+  }
 }

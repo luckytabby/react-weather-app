@@ -20,7 +20,7 @@ export default function Weather(props) {
         setWeather({
         loaded: true,
         city: response.data.name,
-        coord: response.data.coord,
+        coordinates: response.data.coord,
         date: new Date(response.data.dt * 1000),
         temp: Math.round(response.data.main.temp),
         wind: Math.round(response.data.wind.speed),
@@ -68,7 +68,7 @@ export default function Weather(props) {
                 </img>
                 <WeatherData data={weather} />
             </div>
-            <WeatherForecast coord={weather.coord} />
+            <WeatherForecast coordinates={weather.coordinates} />
          </div>
     );
 
