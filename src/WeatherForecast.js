@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
-import { useEffect } from "react/cjs/react.development";
 
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
