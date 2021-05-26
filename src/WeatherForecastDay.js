@@ -45,8 +45,7 @@ export default function WeatherForecastDay(props) {
             <div className="col">
                 <p>{day()}</p>
                 <WeatherIcon code={props.data.weather[0].icon} />
-                <p>{minTemp()} /
-                {maxTemp()}</p>
+                <p>{minTemp()}° / {maxTemp()}°</p>
             </div>
             </div>
       </div>
